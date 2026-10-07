@@ -1,15 +1,12 @@
 import { auth } from "@clerk/nextjs/server";
-import { SignIn } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const { userId } = await auth();
   if (!userId) {
-    return (
-      <div className="flex justify-center y-16">
-        <SignIn routing="hash" />
-      </div>
-    );
+    redirect('/sign-in');
   }
-
-  return <h1>Your todos</h1>
+  return (
+    <div></div>
+  );
 }

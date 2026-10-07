@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         {/* Cache Components is on, so Clerk's request-time auth must sit inside Suspense */}
         <Suspense>
-          <ClerkProvider>
+          <ClerkProvider appearance={{ cssLayerName: "clerk" }}>
             <header className="flex justify-end items-center gap-4 p-4">
               <Show when="signed-in">
                 <UserButton />
