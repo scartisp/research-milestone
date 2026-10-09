@@ -22,7 +22,7 @@ export default async function Home() {
   const todoPending = todos.filter(t => t.dueDate > now && t.dueDate.toDateString() !== todayStr);
 
   return (
-    <div className="max-w-325 w-full mx-auto px-4">
+    <div className="max-w-315 w-full mx-auto px-4">
       <div className="flex justify-between items-center">
         <h1>Tasks</h1>
         <button>+ Add Tasks</button>
