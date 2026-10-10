@@ -33,15 +33,15 @@ export default function TaskTabs({ today, pending, overdue }) {
   }
 
   return (
-    <div>
+    <div className='max-w-300'>
       <div className='flex row justify-self-center gap-5 mb-5'>
         <button className={`${tabStyle} ${tab === 'today' ? 'bg-green-700 text-white' : ''}`} onClick={() => setTab('today')}>Today</button>
         <button className={`${tabStyle} ${tab === 'pending' ? 'bg-green-700 text-white' : ''}`} onClick={() => setTab('pending')}>Pending</button>
         <button className={`${tabStyle} ${tab === 'overdue' ? 'bg-green-700 text-white' : ''}`} onClick={() => setTab('overdue')}>Overdue</button>
       </div>
-      <h2>To do</h2>
+      <h2 className='underline'>To do</h2>
       {notDoneContent}
-      <h2>Completed</h2>
+      <h2 className='underline'>Completed</h2>
       {doneContent}
     </div>
   )

@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <div className="max-w-315 w-full mx-auto px-4">
       <div className="flex justify-between items-center">
-        <h1>Tasks</h1>
+        <h1 className="text-[25px] uppercase">Tasks</h1>
         <AddTaskButton />
       </div>
       <TaskTabs today={todoToday} pending={todoPending} overdue={todoOverdue} />
