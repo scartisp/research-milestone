@@ -1,7 +1,8 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import TaskTabs from './TaskTables';
+import TaskTabs from './taskTables';
+import AddTaskButton from "./addTaskButton";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -11,7 +12,7 @@ export default async function Home() {
 
   const todos = await prisma.todo.findMany({
     where: { userId },
-    orderBy: {dueDate: 'asc' }
+    orderBy: { dueDate: 'asc' }
   });
 
   const now = new Date();
@@ -25,7 +26,7 @@ export default async function Home() {
     <div className="max-w-315 w-full mx-auto px-4">
       <div className="flex justify-between items-center">
         <h1>Tasks</h1>
-        <button>+ Add Tasks</button>
+        <AddTaskButton />
       </div>
       <TaskTabs today={todoToday} pending={todoPending} overdue={todoOverdue} />
     </div>
